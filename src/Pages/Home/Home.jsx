@@ -7,13 +7,12 @@ import ReviewCard from '../../components/ReviewCard/ReviewCard'
 const Home = () => {
   return (
     <div>
-        <NavbarComp/>
         <Banner/>
         <ReviewCard/>
         <ReviewCard/>
         <ReviewCard/>
-        <ReviewCard/>
-        <Footer/>
+        <ReviewCard/> 
+        
     </div>
   )
 }

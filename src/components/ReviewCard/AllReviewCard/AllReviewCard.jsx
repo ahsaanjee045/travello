@@ -3,42 +3,30 @@ import { Box, Typography } from '@mui/material'
 import React from 'react'
 import {Col, Container, Row} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-import camel from '../../assests/images/camel.webp'
+import camel from '../../../assests/images/camel.webp'
 
-const ReviewCard = () => {
+const AllReviewCard = () => {
   return (
-    <Container className='py-sm-2 py-md-4'>
+    <Container className='py-sm-2 py-md-4 px-lg-5'>
        <Row>
-            <Col sm={12} md={10} lg={9} >
+            <Col sm={12} md={7} lg={9} >
                <Box sx={{minHeight : {
                 xs : "540px",
                 md : "200px"
-               }, display : "flex", flexDirection : {
-                xs : "column",
-                md : 'row'
-               }, columnGap : {
+               }, display : "flex", flexDirection : "column", columnGap : {
                 xs : "0px",
                 md : "20px"
                }, rowGap : {
                 xs : "0px",
                 md : "20px"
-               }, paddingRight : {
-                xs : "0",
-                md : "20px"
-               }}}>
-                    <Box sx={{maxWidth : {
-                        sm : "100%",
-                        md : "34%"
-                    }, padding : {
+               }, paddingRight : "100px"}}>
+                    <Box sx={{maxWidth : "100%", maxHeight : '400px', padding : {
                         xs: "20px",
                         md : "10px"
                     }}}>
-                        <img src={camel} alt="" height="100%" width="100%" />
+                        <img src={camel} alt="" height="400px" width="100%" />
                     </Box>
-                    <Box sx={{maxWidth : {
-                        sm : "100%",
-                        md : "65%"
-                    }, padding : {
+                    <Box sx={{maxWidth :"100%", padding : {
                         xs: "20px",
                         md : "10px"
                     }}}>
@@ -49,10 +37,11 @@ const ReviewCard = () => {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam officiis consequatur repellendus a ipsam! aut aliquid.
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam officiis consequatur repellendus a ipsam! aut aliquid.
                         </Typography>
+                        <a style={{color  : "black",fontWeight : '400', fontFamily : "'Oswald', sans-serif", marginTop : "20px", display : "inline-block"}}>Read More</a>
                     </Box>
                </Box>
             </Col>
-            <Col sm={12} md={2} lg={3} className="d-none d-lg-block">
+            <Col sm={12} md={5} lg={3} className="d-none d-lg-block">
                  
             </Col>
        </Row>
@@ -60,4 +49,4 @@ const ReviewCard = () => {
   )
 }
 
-export default ReviewCard
+export default AllReviewCard
