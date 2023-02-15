@@ -1,5 +1,6 @@
 
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
 import NavbarComp from './components/NavbarComp/NavbarComp'
 import AllReviewsPage from './Pages/AllReviews/AllReviewsPage'
@@ -11,9 +12,15 @@ function App() {
   return (
     <div className="App">
       <NavbarComp/>
-      {/* <Home/> */}
-      <LoginPage/>
-      {/* <AllReviewsPage/> */}
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/allreviews' element={<AllReviewsPage/>}/>
+          {/* localhost:5173/user/login */}
+          <Route path='/user'>
+            <Route path=':login' element={<LoginPage/>} />
+            <Route path=':register' element={<LoginPage/>} />
+          </Route>
+        </Routes>
       <Footer/>
     </div>
   )

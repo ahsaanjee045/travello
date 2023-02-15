@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -28,11 +29,11 @@ const NavbarComp = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
-          <Nav.Link className="mx-3" href="#home">Home</Nav.Link>
-          <Nav.Link className="mx-3" href="#allreview">All Reviews</Nav.Link>
-          <Nav.Link className="mx-3" href="#review">My Reviews</Nav.Link>
-          <Nav.Link className="mx-3" href="#post">Post A Review</Nav.Link>
-          <Nav.Link className="mx-3" href="#about">About</Nav.Link>  
+          <Nav.Link as={Link} to={"/"} className="mx-3" >Home</Nav.Link>
+          <Nav.Link as={Link} to={"/allreviews"} className="mx-3">All Reviews</Nav.Link>
+          {/* <Nav.Link as={Link} className="mx-3" >My Reviews</Nav.Link> */}
+          {/* <Nav.Link as={Link} className="mx-3" >Post A Review</Nav.Link> */}
+          <Nav.Link as={Link} to={"/user/login"} className="mx-3" >Login</Nav.Link>  
         </Nav>
       </Navbar.Collapse>
     </Container>
