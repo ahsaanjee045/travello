@@ -6,9 +6,9 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
-import { loginUser, registerUser } from "../../slices/userslice";
+import { registerUser } from "../../slices/userslice";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const dispatch = useDispatch();
   const navigate =useNavigate();
   const state = useSelector((state) => state.user) 
@@ -23,24 +23,15 @@ const LoginPage = () => {
   //   cpassword : yup.string().min(6).required("Confirm Password Required"),
   // })
 
-  const initialValues = {
-    username: "",
-    email: "",
-    password: "",
-    cpassword: "",
-  }
-  useEffect(() => {
-    if (loginPage === "login") {
-      setLogin(true);
-      
-    } else {
-      setLogin(false);
-    }
-  });
 
 
   const formik = useFormik({
-    initialValues,
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+      cpassword: "",
+    },
     validateOnBlur: false,
     validateOnChange: false,
     validate: (values) => {
@@ -60,15 +51,18 @@ const LoginPage = () => {
       if(!login){
         dispatch(registerUser(values))
         navigate("/user/login")
-      }else if(login){
-        dispatch(loginUser({email : values.email, password : values.password}))
-        navigate("/")
       }
     },
   });
 
   console.log(formik.errors);
- 
+  useEffect(() => {
+    if (loginPage === "login") {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    }
+  });
   return (
     <Box>
       <Box
@@ -213,4 +207,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
